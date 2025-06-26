@@ -13,6 +13,11 @@ return {
     end,
   },
 
+  {
+    "github/copilot.vim",
+    lazy = false, -- Load it immediately, or set event = "InsertEnter" if you want lazy loading
+  },
+
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
