@@ -1,5 +1,10 @@
 require "nvchad.autocmds"
 
+-- Keymap: <leader>cc to open CopilotChat
+vim.keymap.set('n', '<leader>cc', function()
+  vim.cmd('CopilotChat')
+end, { desc = 'Open CopilotChat' })
+
 -- Enable Copilot suggestion keymaps in copilot-chat buffers
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'copilot-chat',
