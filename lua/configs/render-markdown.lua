@@ -8,10 +8,3 @@ require('render-markdown').setup({
 vim.keymap.set('n', '<leader>mr', function()
   require('render-markdown').toggle()
 end, { desc = 'Toggle Markdown Render' })
-
--- Adjust CopilotChat display settings
-require('CopilotChat').setup({
-  highlight_headers = false,
-  separator = '---',
-  error_header = '> [!ERROR] Error',
-})
