@@ -35,8 +35,11 @@ return {
 
   {
     'MeanderingProgrammer/render-markdown.nvim',
+    lazy = false, -- Load immediately
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' },
-    opts = {},
+    config = function()
+      require('configs.render-markdown')
+    end,
   },
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
