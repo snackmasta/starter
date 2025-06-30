@@ -7,15 +7,22 @@ end, { desc = 'Open CopilotChat' })
 
 -- Keymap: <leader>cs to save CopilotChat session
 vim.keymap.set('n', '<leader>cs', function()
-  vim.cmd('CopilotChatSave test_session')
+  vim.ui.input({ prompt = 'Save CopilotChat session as: ' }, function(input)
+    if input and #input > 0 then
+      vim.cmd('CopilotChatSave ' .. vim.fn.fnameescape(input))
+    end
+  end)
 end, { desc = 'Save CopilotChat session' })
 
--- Keymap: <leader>cl to load CopilotChat test_session
+-- Keymap: <leader>cl to load CopilotChat session
 vim.keymap.set('n', '<leader>cl', function()
-  vim.cmd('CopilotChatLoad test_session')
+  vim.ui.input({ prompt = 'Load CopilotChat session: ' }, function(input)
+    if input and #input > 0 then
+      vim.cmd('CopilotChatLoad ' .. vim.fn.fnameescape(input))
+    end
+  end)
 end, { desc = 'Load CopilotChat session' })
 
--- Enable Copilot suggestion keymaps in copilot-chat buffers
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'copilot-chat',
   callback = function()
